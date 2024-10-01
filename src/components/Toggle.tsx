@@ -1,5 +1,5 @@
-import { Switch } from '@headlessui/react'
 import { useCallback, useState } from 'react'
+import { Switch } from '@headlessui/react'
 
 export type ToggleProps = {
   defaultValue?: boolean

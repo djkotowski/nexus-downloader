@@ -6,6 +6,9 @@ import Button from './Button'
 const meta: Meta<typeof Button> = {
   component: Button,
   args: {
+    disabled: false,
+    isProcessing: false,
+    size: 'md',
     onClick: fn(),
   },
   argTypes: {
@@ -24,6 +27,14 @@ const meta: Meta<typeof Button> = {
         defaultValue: { summary: 'default' },
         type: { summary: 'string' },
       },
+    },
+    isProcessing: {
+      type: 'boolean',
+    },
+    size: {
+      control: 'radio',
+      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      type: 'string',
     },
     type: {
       control: false,

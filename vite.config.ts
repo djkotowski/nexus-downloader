@@ -1,33 +1,42 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import tsconfigPaths from "vite-tsconfig-paths";
+import react from '@vitejs/plugin-react'
+import { defineConfig, Plugin } from 'vite'
+import tsconfigPaths, { PluginOptions } from 'vite-tsconfig-paths'
 
-// @ts-expect-error process is a nodejs global
-const host = process.env.TAURI_DEV_HOST;
+const host = process.env.TAURI_DEV_HOST
 
-// https://vitejs.dev/config/
+const reactDevToolsPlugin: (opts?: PluginOptions) => Plugin = () => {
+  return {
+    name: 'vite-react-devtools',
+    apply: ({ mode }) => mode === 'development',
+    transformIndexHtml() {
+      return [
+        {
+          tag: 'script',
+          attrs: {
+            src: 'http://localhost:8097',
+          },
+        },
+      ]
+    },
+  }
+}
+
 export default defineConfig(async () => ({
-  plugins: [react(), tsconfigPaths()],
-
-  // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
-  //
-  // 1. prevent vite from obscuring rust errors
+  plugins: [reactDevToolsPlugin(), react(), tsconfigPaths()],
   clearScreen: false,
-  // 2. tauri expects a fixed port, fail if that port is not available
   server: {
     port: 1420,
     strictPort: true,
     host: host || false,
     hmr: host
       ? {
-          protocol: "ws",
+          protocol: 'ws',
           host,
           port: 1421,
         }
       : undefined,
     watch: {
-      // 3. tell vite to ignore watching `src-tauri`
-      ignored: ["**/src-tauri/**"],
+      ignored: ['**/src-tauri/**'],
     },
   },
-}));
+}))

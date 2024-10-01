@@ -18,6 +18,11 @@ const meta: Meta<typeof InputField> = {
     onChange: fn(),
   },
   argTypes: {
+    error: {
+      table: {
+        type: { summary: 'string | boolean' },
+      },
+    },
     label: {
       type: 'string',
     },
