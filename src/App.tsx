@@ -1,14 +1,22 @@
-import Button from '~/components/Button'
+import AppRouter from '~/routes'
 import ThemeContainer from '~/themes/ThemeContainer'
 
 import './App.css'
 
+import { useEffect } from 'react'
+
 export default function App() {
+  if (import.meta.env.PROD) {
+    useEffect(() => {
+      document.addEventListener('contextmenu', (e) => {
+        e.preventDefault()
+      })
+    }, [])
+  }
+
   return (
     <ThemeContainer>
-      <div className="bg-brand-blue-950 w-screen h-screen max-w-screen">
-        <Button>Test</Button>
-      </div>
+      <AppRouter />
     </ThemeContainer>
   )
 }
