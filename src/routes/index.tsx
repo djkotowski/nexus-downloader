@@ -2,11 +2,13 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import InitialScreen from '~/InitialScreen'
 import AppLayout from '~/layout/AppLayout'
+import FirstRun from '~/routes/FirstRun.tsx'
 
 const router = createBrowserRouter(
   [
     { path: '/', element: <InitialScreen /> },
     { path: '/app', element: <AppLayout />, children: [] },
+    { path: '/first_run', element: <FirstRun /> },
   ],
   {
     future: {

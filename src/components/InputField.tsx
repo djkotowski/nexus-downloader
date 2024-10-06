@@ -4,7 +4,10 @@ import { twMerge } from 'tailwind-merge'
 
 import { isPresent } from '~/utils/helpers'
 
-type InputFieldProps = Pick<FloatingLabelProps, 'defaultValue' | 'label' | 'value'> & {
+type InputFieldProps = Pick<
+  FloatingLabelProps,
+  'autoFocus' | 'defaultValue' | 'label' | 'maxLength' | 'minLength' | 'required' | 'value'
+> & {
   error?: string | boolean
   helpText?: string
   onChange?: (newValue: string) => void

@@ -1,9 +1,10 @@
+import { useEffect } from 'react'
+
+import AppProvider from '~/context'
 import AppRouter from '~/routes'
 import ThemeContainer from '~/themes/ThemeContainer'
 
 import './App.css'
-
-import { useEffect } from 'react'
 
 export default function App() {
   if (import.meta.env.PROD) {
@@ -16,7 +17,9 @@ export default function App() {
 
   return (
     <ThemeContainer>
-      <AppRouter />
+      <AppProvider>
+        <AppRouter />
+      </AppProvider>
     </ThemeContainer>
   )
 }

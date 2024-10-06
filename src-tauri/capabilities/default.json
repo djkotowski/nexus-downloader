@@ -14,6 +14,7 @@
     "core:default",
     "shell:allow-open",
     "fs:default",
+    "fs:allow-appconfig-write-recursive",
     "http:default"
   ]
 }
