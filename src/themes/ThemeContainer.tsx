@@ -11,7 +11,7 @@ const theme: CustomFlowbiteTheme = {
       default:
         'bg-gray-500 text-white hover:bg-gray-600 focus:ring-gray-400 active:hover:bg-gray-500 disabled:bg-gray-800 disabled:active:hover:bg-gray-800 disabled:text-gray-400',
       primary:
-        'bg-brand-blue text-white hover:bg-brand-blue-800 focus:ring-brand-blue-500 active:hover:bg-brand-blue-900 disabled:bg-brand-blue-300 disabled:active:hover:bg-brand-blue-300',
+        'bg-brand-blue-500 text-white hover:bg-brand-blue-600 focus:ring-brand-blue-600 active:hover:bg-brand-blue-800 disabled:bg-brand-blue-300 disabled:active:hover:bg-brand-blue-300',
       secondary:
         'bg-brand-green text-white hover:bg-brand-green-900 focus:ring-brand-green-700 active:hover:bg-brand-green-950 disabled:bg-green-300 disabled:active:hover:bg-green-300',
       warning:

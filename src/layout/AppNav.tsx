@@ -1,7 +1,13 @@
 import { Dropdown, Navbar } from 'flowbite-react'
 import { HiCog8Tooth, HiPlusCircle } from 'react-icons/hi2'
 
+import { useAppContext } from '~/AppContext.tsx'
+
 export default function AppNav() {
+  const {
+    ui: { openSettingsModal },
+  } = useAppContext()
+
   return (
     <Navbar fluid>
       <div className="flex md:order-2">
@@ -10,7 +16,7 @@ export default function AppNav() {
           <Dropdown.Item>Skyrim</Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item icon={HiPlusCircle}>Manage a new game</Dropdown.Item>
-          <Dropdown.Item href="/settings" icon={HiCog8Tooth}>
+          <Dropdown.Item icon={HiCog8Tooth} onClick={() => openSettingsModal()}>
             Settings
           </Dropdown.Item>
         </Dropdown>
