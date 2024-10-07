@@ -1,13 +1,11 @@
 import { useCallback, useState, type FormEvent } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 import Button from '~/components/Button.tsx'
 import ExternalLink from '~/components/ExternalLink.tsx'
 import InputField from '~/components/InputField.tsx'
 import { useAppContext } from '~/context'
 
-export default function FirstRun() {
-  const navigate = useNavigate()
+export default function InitialSetup() {
   const { setNexusApiKey } = useAppContext()
   const [apiKey, setApiKey] = useState('')
   const canSubmit = apiKey.length >= 10
@@ -18,10 +16,9 @@ export default function FirstRun() {
 
       if (canSubmit) {
         setNexusApiKey(apiKey)
-        navigate('/app', { replace: true })
       }
     },
-    [apiKey, setNexusApiKey, navigate]
+    [apiKey, setNexusApiKey]
   )
 
   return (

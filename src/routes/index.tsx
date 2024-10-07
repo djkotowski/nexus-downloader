@@ -1,14 +1,19 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-import InitialScreen from '~/InitialScreen'
 import AppLayout from '~/layout/AppLayout'
-import FirstRun from '~/routes/FirstRun.tsx'
+import ModsPage from '~/routes/mods'
+import SettingsPage from '~/routes/settings'
 
 const router = createBrowserRouter(
   [
-    { path: '/', element: <InitialScreen /> },
-    { path: '/app', element: <AppLayout />, children: [] },
-    { path: '/first_run', element: <FirstRun /> },
+    {
+      path: '/',
+      element: <AppLayout />,
+      children: [
+        { index: true, element: <ModsPage /> },
+        { path: 'settings', element: <SettingsPage /> },
+      ],
+    },
   ],
   {
     future: {

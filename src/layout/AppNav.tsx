@@ -10,7 +10,9 @@ export default function AppNav() {
           <Dropdown.Item>Skyrim</Dropdown.Item>
           <Dropdown.Divider />
           <Dropdown.Item icon={HiPlusCircle}>Manage a new game</Dropdown.Item>
-          <Dropdown.Item icon={HiCog8Tooth}>Settings</Dropdown.Item>
+          <Dropdown.Item href="/settings" icon={HiCog8Tooth}>
+            Settings
+          </Dropdown.Item>
         </Dropdown>
         <Navbar.Toggle />
       </div>
